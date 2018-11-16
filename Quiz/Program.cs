@@ -42,14 +42,21 @@ namespace Quiz
             vragen.Add(vraag1);
             vragen.Add(vraag3);
 
-            var gesorteerd = vragen.OrderBy(v => v.MoeilijkheidsGraad); 
-            
+            var gesorteerd = vragen.OrderBy(v => v.MoeilijkheidsGraad);
+            Console.WriteLine("Vragen zijn gesorteerd op moeilijkheidsgraad ");
             foreach (Question vraag in gesorteerd)
             {
                 Console.WriteLine(vraag.GetQuestion());
                 Console.WriteLine(vraag.CheckAnswer(Console.ReadLine()));
             }
+            
             Console.WriteLine("U heeft de quiz gemaakt goed gedaan!");
+            List<Question> moeilijkheids = vragen.Where(v => v.MoeilijkheidsGraad == 2).ToList();
+            Console.WriteLine("Hier is de lijst met de vragen waarvan moeilijkheidsgraad 2 is");
+            foreach (Question vraag in moeilijkheids)
+            {
+                Console.WriteLine(vraag.GetQuestion());
+            }
             Console.ReadLine();
         }
     }
