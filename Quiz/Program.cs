@@ -10,12 +10,47 @@ namespace Quiz
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            List<Question> vragen = new List<Question>();
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+
+
+            MultipleChoice vraag1 = new MultipleChoice()
+            {
+                MoeilijkheidsGraad = 3,
+                Tekst = "Waar ligt Den Haag?"
+            };
+            
+            vraag1.SetChoice("Nederland", true);
+            vraag1.SetChoice("Engeland", false);
+            vraag1.SetChoice("Duitsland", false);
+
+            Question vraag2 = new OpenQuestion()
+            {
+                MoeilijkheidsGraad = 2,
+                Tekst = "Wie heeft het WK in Rusland gewonnen?",
+                Antwoord = "Frankrijk"
+            };
+
+            Question vraag3 = new OpenQuestion()
+            {
+                MoeilijkheidsGraad = 1,
+                Tekst = "Wanneer wint Nederland het wk?",
+                Antwoord = "2022"
+            };
+           
+            vragen.Add(vraag2);
+            vragen.Add(vraag1);
+            vragen.Add(vraag3);
+
+            var gesorteerd = vragen.OrderBy(v => v.MoeilijkheidsGraad); 
+            List Specif
+            foreach (Question vraag in gesorteerd)
+            {
+                Console.WriteLine(vraag.GetQuestion());
+                Console.WriteLine(vraag.CheckAnswer(Console.ReadLine()));
+            }
+            Console.WriteLine("U heeft de quiz gemaakt goed gedaan!");
+            Console.ReadLine();
         }
     }
 }
