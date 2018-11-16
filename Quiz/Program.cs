@@ -43,7 +43,7 @@ namespace Quiz
             vragen.Add(vraag3);
 
             var gesorteerd = vragen.OrderBy(v => v.MoeilijkheidsGraad); 
-            List Specif
+            
             foreach (Question vraag in gesorteerd)
             {
                 Console.WriteLine(vraag.GetQuestion());
